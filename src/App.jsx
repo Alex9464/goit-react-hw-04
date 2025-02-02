@@ -45,11 +45,18 @@ const App = () => {
     setPage(1);
   };
 
+  const loadMoreImages = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
+
   return (
     <div className={styles.app}>
       <SearchBar onSubmit={handleSearch} />
       <ImageGallery images={images} />
       {loading && <Loader />}
+      {images.length > 0 && !loading && (
+        <button onClick={loadMoreImages}>Load More</button>
+      )}
     </div>
   );
 };
