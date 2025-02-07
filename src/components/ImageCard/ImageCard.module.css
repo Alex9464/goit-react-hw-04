@@ -1,14 +1,14 @@
 .card {
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
-  transition: box-shadow 0.2s ease;
   height: 100%;
+  border-radius: 8px;
+  transition: box-shadow 0.2s ease, transform 0.4s ease;
 }
 
 .card:hover {
   transform: scale(1.02);
-  box-shadow: 4px 4px 10px #6b6b6b;
+  box-shadow: 7px 7px 14px #6b6b6b;
 }
 
 .card img {
