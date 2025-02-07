@@ -1,19 +1,22 @@
-import styles from './ImageGallery.module.css';
+import PropTypes from "prop-types";
+import ImageCard from "../ImageCard/ImageCard";
+import styles from "./ImageGallery.module.css";
 
 const ImageGallery = ({ images, openModal }) => {
   return (
-    <div className={styles.imageGallery}>
+    <ul className={styles.gallery}>
       {images.map((image) => (
-        <div key={image.id} className={styles.imageItem} onClick={() => openModal(image)}>
-          <img src={image.urls.small} alt={image.alt_description} />
-          <div className={styles.imageDescription}>
-            <h3 className={styles.imageTitle}>{image.alt_description || 'Untitled'}</h3>
-            <p>{image.description || 'No description available'}</p>
-          </div>
-        </div>
+        <li key={image.id} className={styles.galleryItem}>
+          <ImageCard image={image} openModal={openModal} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
+};
+
+ImageGallery.propTypes = {
+  images: PropTypes.array.isRequired,
+  openModal: PropTypes.func.isRequired,
 };
 
 export default ImageGallery;
